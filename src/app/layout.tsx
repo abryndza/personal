@@ -1,15 +1,25 @@
+import {
+  ColorSchemeScript,
+  createTheme,
+  MantineProvider,
+  mantineHtmlProps,
+} from "@mantine/core";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Mono } from "next/font/google";
+
+import "@mantine/core/styles.css";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const mainFont = Space_Mono({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const theme = createTheme({
+  fontFamily: "var(--font-space-mono), monospace",
+  fontFamilyMonospace: "var(--font-space-mono), monospace",
+  headings: { fontFamily: "var(--font-space-mono), monospace" },
 });
 
 export const metadata: Metadata = {
@@ -23,11 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html
+      lang="pl"
+      className={`${mainFont.variable} antialiased`}
+      {...mantineHtmlProps}
+    >
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
   );
