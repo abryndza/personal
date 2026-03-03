@@ -6,6 +6,7 @@ import {
 } from "@mantine/core";
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
+import { AppShell } from "@/shared/components/layout";
 
 import "@mantine/core/styles.css";
 import "./globals.css";
@@ -42,7 +43,9 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <AppShell>{children}</AppShell>
+        </MantineProvider>
       </body>
     </html>
   );
