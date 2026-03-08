@@ -16,12 +16,11 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
       component={Link}
       href={urls.blogArticle(article.slug)}
       padding="lg"
-      radius="md"
-      withBorder
+      radius="lg"
       className="max-w-100 min-w-80 cursor-pointer flex flex-col"
     >
       <Card.Section>
-        <div className="relative w-full aspect-video bg-gray-100 dark:bg-zinc-800">
+        <div className="relative w-full aspect-video bg-gray-100">
           <Image
             src={article.imagePreview}
             alt={article.title}
@@ -40,18 +39,19 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
 
             <Title
               order={3}
-              className="text-xl sm:text-2xl font-bold mb-2 leading-tight"
+              mb={10}
+              className="text-xl sm:text-2xl font-bold leading-tight"
             >
               {article.title}
             </Title>
 
-            <Text c="dimmed" lineClamp={3} className="grow mb-4">
+            <Text c="dimmed" lineClamp={3} className="grow" mb={12}>
               {article.intro}
             </Text>
 
             <Group justify="right" align="center" mt="auto" className="pt-4">
               <Text size="sm" fw={500}>
-                Read more
+                Zobacz więcej
               </Text>
             </Group>
           </div>

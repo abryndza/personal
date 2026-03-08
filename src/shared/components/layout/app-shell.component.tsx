@@ -25,7 +25,7 @@ export const AppShell = ({ children }: AppShellProps) => {
       <MantineAppShell.Header bg={"transparent"}>
         <Navbar />
       </MantineAppShell.Header>
-      <MantineAppShell.Main pt={{ base: 60, md: 104 }}>
+      <MantineAppShell.Main pt={{ base: 60, md: 80 }}>
         {children}
       </MantineAppShell.Main>
       <MantineAppShell.Footer bg="transparent">

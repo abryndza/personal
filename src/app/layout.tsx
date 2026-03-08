@@ -5,22 +5,22 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
+import { Martian_Mono } from "next/font/google";
 import { AppShell } from "@/shared/components/layout";
 
 import "@mantine/core/styles.css";
 import "./globals.css";
 
-const mainFont = Space_Mono({
+const mainFont = Martian_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-space-mono",
+  variable: "--font-martian-mono",
 });
 
 const theme = createTheme({
-  fontFamily: "var(--font-space-mono), monospace",
-  fontFamilyMonospace: "var(--font-space-mono), monospace",
-  headings: { fontFamily: "var(--font-space-mono), monospace" },
+  fontFamily: "var(--font-martian-mono), monospace",
+  fontFamilyMonospace: "var(--font-martian-mono), monospace",
+  headings: { fontFamily: "var(--font-martian-mono), monospace" },
 });
 
 export const metadata: Metadata = {
