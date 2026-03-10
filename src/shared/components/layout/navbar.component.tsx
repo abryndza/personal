@@ -11,11 +11,12 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
+import { urls as blogUrls } from "@/features/blog/urls";
 import { NavbarIcons } from "./navbar-icons.component";
 
 const navItems = [
   { href: "/", label: "Strona główna" },
-  { href: "/blog", label: "Blog" },
+  { href: blogUrls.main(), label: "Blog" },
 ];
 
 export const Navbar = () => {
