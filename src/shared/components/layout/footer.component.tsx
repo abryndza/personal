@@ -1,15 +1,11 @@
-import { Box, Center, Text } from "@mantine/core";
-
 export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <Box component="footer" py="md" px="md">
-      <Center>
-        <Text size="sm" c="dimmed">
-          © {year} Adam Bryndza.
-        </Text>
-      </Center>
-    </Box>
+    <footer className="flex w-full h-full items-center justify-center py-10">
+      <span className="text-center text-sm text-gray-500">
+        © {year} Adam Bryndza
+      </span>
+    </footer>
   );
 };

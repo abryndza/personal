@@ -7,6 +7,12 @@
   --font-mono: var(--font-martian-mono);
   --color-bg: #171717;
   --color-light-bg: #1e1e1e;
+
+  /* Custom Breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 640px;
+  --breakpoint-laptop: 960px;
+  --breakpoint-monitor: 1280px;
 }
 
 body {

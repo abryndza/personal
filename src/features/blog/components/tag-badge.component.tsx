@@ -3,7 +3,7 @@ import Link from "next/link";
 interface TagBadgeProps {
   name: string;
   isSelected?: boolean;
-  href?: string;
+  href: string;
   className?: string;
 }
 
@@ -14,33 +14,29 @@ export const TagBadge = ({
   className = "",
 }: TagBadgeProps) => {
   const baseClasses =
-    "text-gray-400 bg-zinc-800 px-4 py-2 rounded-lg border-2 border-solid border-zinc-600 transition duration-500 ease-in-out text-md inline-block cursor-pointer";
-  const hoverClasses =
-    "hover:bg-zinc-950 aria-[current=page]:hover:bg-zinc-300 aria-[current=page]:hover:border-zinc-300";
+    "px-4 py-2 rounded-lg border-2 border-solid transition duration-500 ease-in-out text-md inline-block";
+
   const activeClasses =
-    "aria-[current=page]:bg-zinc-400 aria-[current=page]:text-gray-900 aria-[current=page]:border-zinc-400 aria-[current=page]:font-bold";
+    "bg-zinc-400 text-gray-900 border-zinc-400 font-bold hover:bg-zinc-300 hover:border-zinc-300 cursor-default";
 
-  const combinedClasses = `${baseClasses} ${hoverClasses} ${activeClasses} ${className}`;
+  const inactiveClasses =
+    "text-gray-400 bg-zinc-800 border-zinc-600 hover:bg-zinc-950 cursor-pointer";
 
-  if (href) {
-    return (
-      <Link
-        scroll={false}
-        href={href}
-        aria-current={isSelected ? "page" : undefined}
-        className={combinedClasses}
-      >
-        {name}
-      </Link>
-    );
-  }
+  const combinedClasses = `${baseClasses} ${
+    isSelected ? activeClasses : inactiveClasses
+  } ${className}`.trim();
 
   return (
-    <span
+    <Link
+      scroll={false}
+      href={href}
+      onClick={(e) => {
+        if (isSelected) e.preventDefault();
+      }}
       aria-current={isSelected ? "page" : undefined}
       className={combinedClasses}
     >
       {name}
-    </span>
+    </Link>
   );
 };

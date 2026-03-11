@@ -24,7 +24,7 @@ export const Navbar = () => {
   const { colorScheme } = useMantineColorScheme();
 
   return (
-    <>
+    <header>
       <Box py="sm" h={{ base: 60, md: 104 }}>
         <Group justify="space-between" h="100%">
           <Group gap={50}>
@@ -103,6 +103,6 @@ export const Navbar = () => {
           </Box>
         </Stack>
       </Drawer>
-    </>
+    </header>
   );
 };

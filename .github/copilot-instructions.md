@@ -2,7 +2,7 @@
 
 ## Code Style
 - Written in TypeScript using React 19 and Next.js 16.
-- Styling uses a combination of Mantine and Tailwind CSS v4.
+- Styling uses a combination of Mantine and Tailwind CSS v4. Avoid Mantine components where possible. Use them only for complex features that are difficult to build from scratch (e.g., Drawer, Carousel).
 - Linting and formatting run via Biome (`bun run lint` and `bun run format`).
 - Focus on creating **small, reusable components**.
 

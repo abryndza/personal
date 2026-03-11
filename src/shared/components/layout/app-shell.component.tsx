@@ -10,27 +10,10 @@ type AppShellProps = {
 
 export const AppShell = ({ children }: AppShellProps) => {
   return (
-    <MantineAppShell
-      header={{
-        height: { base: 60, md: 104 },
-      }}
-      footer={{
-        height: { base: 60, md: 104 },
-      }}
-      px={{ base: 20, md: 80 }}
-      withBorder={false}
-      mode="static"
-      mih="100vh"
-    >
-      <MantineAppShell.Header bg={"transparent"}>
-        <Navbar />
-      </MantineAppShell.Header>
-      <MantineAppShell.Main pt={{ base: 60, md: 80 }}>
-        {children}
-      </MantineAppShell.Main>
-      <MantineAppShell.Footer bg="transparent">
-        <Footer />
-      </MantineAppShell.Footer>
-    </MantineAppShell>
+    <div className="px-5 laptop:px-20 min-h-screen flex flex-col justify-between gap-15 laptop:gap-20">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
   );
 };
