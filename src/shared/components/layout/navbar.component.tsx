@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Burger,
-  Drawer,
-  Group,
-  Stack,
-  Text,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { urls as blogUrls } from "@/features/blog/urls";
@@ -21,56 +13,42 @@ const navItems = [
 
 export const Navbar = () => {
   const [opened, { toggle, close }] = useDisclosure();
-  const { colorScheme } = useMantineColorScheme();
 
   return (
-    <header>
-      <Box py="sm" h={{ base: 60, md: 104 }}>
-        <Group justify="space-between" h="100%">
-          <Group gap={50}>
-            <Link href="/" style={{ textDecoration: "none" }}>
-              <Text
-                fz={{ base: "xl", md: "24px" }}
-                fw={700}
-                c={colorScheme === "dark" ? "gray.2" : "dark.9"}
-                style={{ transition: "color 300ms ease-in-out" }}
-                className="hover:text-zinc-400"
-              >
-                Adam Bryndza
-              </Text>
-            </Link>
+    <header className="px-5 laptop:px-20 sticky top-0 z-1000001 bg-white dark:bg-bg">
+      <nav className="flex items-center justify-between py-2 min-h-15 laptop:min-h-26">
+        <div className="flex items-center gap-12.5">
+          <Link href="/" style={{ textDecoration: "none" }} scroll={false}>
+            <span className="font-bold transition-colors duration-300 hover:text-zinc-400 text-xl laptop:text-2xl text-gray-900 dark:text-gray-200">
+              Adam Bryndza
+            </span>
+          </Link>
 
-            <Group gap="lg" visibleFrom="sm">
-              {navItems.map((item) => (
+          <ul className="hidden tablet:flex items-center gap-6 list-none m-0 p-0">
+            {navItems.map((item) => (
+              <li key={item.href}>
                 <Link
-                  key={item.href}
                   href={item.href}
                   style={{ textDecoration: "none" }}
+                  className="text-base font-normal text-gray-800 dark:text-gray-400"
+                  scroll={false}
                 >
-                  <Text
-                    c={colorScheme === "dark" ? "gray.4" : "gray.8"}
-                    size="md"
-                  >
-                    {item.label}
-                  </Text>
+                  {item.label}
                 </Link>
-              ))}
-            </Group>
-          </Group>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <Group gap="xs">
-            <Group visibleFrom="sm">
-              <NavbarIcons />
-            </Group>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-            />
-          </Group>
-        </Group>
-      </Box>
+        <div className="flex items-center gap-4">
+          <div className="hidden tablet:flex items-center gap-4">
+            <NavbarIcons />
+          </div>
+          <div className="tablet:hidden flex items-center">
+            <Burger opened={opened} onClick={toggle} size="sm" />
+          </div>
+        </div>
+      </nav>
 
       <Drawer
         opened={opened}
@@ -78,30 +56,31 @@ export const Navbar = () => {
         size="100%"
         padding="md"
         title="Menu"
-        hiddenFrom="sm"
+        withCloseButton={false}
         zIndex={1000000}
+        classNames={{
+          content: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
+          header: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
+          body: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
+        }}
       >
-        <Stack gap="md" mt="xl">
+        <div className="flex flex-col gap-4 mt-6 pt-15">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               style={{ textDecoration: "none" }}
               onClick={close}
+              className="text-xl font-medium text-gray-800 dark:text-gray-400"
+              scroll={false}
             >
-              <Text
-                size="xl"
-                fw={500}
-                c={colorScheme === "dark" ? "gray.4" : "gray.8"}
-              >
-                {item.label}
-              </Text>
+              {item.label}
             </Link>
           ))}
-          <Box mt="xl">
+          <div className="mt-8 flex gap-4">
             <NavbarIcons />
-          </Box>
-        </Stack>
+          </div>
+        </div>
       </Drawer>
     </header>
   );
