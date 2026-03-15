@@ -1,8 +1,10 @@
 import { availableTags } from "@/content/config";
 import { ListingPage } from "@/features/blog";
+import type { PageParams } from "@/shared/interfaces";
 
-export default async function Tag() {
-  return <ListingPage />;
+export default async function Tag({ params }: PageParams<{ tagSlug: string }>) {
+  const { tagSlug } = await params;
+  return <ListingPage tagSlug={tagSlug} />;
 }
 
 export const generateStaticParams = async () => {

@@ -40,7 +40,7 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
             <Title
               order={3}
               mb={10}
-              className="text-xl sm:text-2xl font-bold leading-tight"
+              className="text-xl tablet:text-2xl font-bold leading-tight"
             >
               {article.title}
             </Title>

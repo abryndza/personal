@@ -1,8 +1,22 @@
 import { ArticleCard } from "@/features/blog/components";
 import { articlesListService } from "@/features/blog/services";
 
-export async function ListingPage() {
-  const articles = await articlesListService.getAll();
+type ListingPageProps = {
+  tagSlug?: string;
+};
+
+export async function ListingPage({ tagSlug }: ListingPageProps) {
+  const articles = tagSlug
+    ? await articlesListService.getByTag(tagSlug)
+    : await articlesListService.getAll();
+
+  if (articles.length === 0) {
+    return (
+      <div className="col-span-full flex justify-center text-base text-gray-500">
+        Brak wpisów dla tego tagu.
+      </div>
+    );
+  }
 
   return (
     <>

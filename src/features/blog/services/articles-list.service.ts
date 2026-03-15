@@ -61,4 +61,10 @@ export const articlesListService = {
     const slugs = await fileSystemClient.getArticleSlugs();
     return await Promise.all(slugs.map(fetchArticleMetadataOrFail));
   },
+  async getByTag(tagSlug: string): Promise<ArticleMetadata[]> {
+    const allArticles = await this.getAll();
+    return allArticles.filter((article) =>
+      article.tags.some((tag) => tag.slug === tagSlug),
+    );
+  },
 };
