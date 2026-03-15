@@ -19,7 +19,7 @@ export const Navbar = () => {
       <nav className="flex items-center justify-between py-2 min-h-15 laptop:min-h-26">
         <div className="flex items-center gap-12.5">
           <Link href="/" style={{ textDecoration: "none" }} scroll={false}>
-            <span className="font-bold transition-colors duration-300 hover:text-zinc-400 text-xl laptop:text-2xl text-gray-900 dark:text-gray-200">
+            <span className="font-bold transition-colors duration-300 hover:text-gray-600 dark:hover:text-zinc-400 text-xl laptop:text-2xl text-gray-900 dark:text-gray-200">
               Adam Bryndza
             </span>
           </Link>
@@ -59,9 +59,9 @@ export const Navbar = () => {
         withCloseButton={false}
         zIndex={1000000}
         classNames={{
-          content: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
-          header: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
-          body: "bg-white dark:bg-bg !bg-white dark:!bg-bg",
+          content: "bg-bg !bg-bg",
+          header: "bg-bg !bg-bg",
+          body: "bg-bg !bg-bg",
         }}
       >
         <div className="flex flex-col gap-4 mt-6 pt-15">
@@ -71,7 +71,7 @@ export const Navbar = () => {
               href={item.href}
               style={{ textDecoration: "none" }}
               onClick={close}
-              className="text-xl font-medium text-gray-800 dark:text-gray-400"
+              className="text-xl font-medium text-foreground"
               scroll={false}
             >
               {item.label}

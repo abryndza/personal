@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Group, Text, Title } from "@mantine/core";
+import { Card } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import type { ArticleMetadata } from "@/features/blog/interfaces";
@@ -33,27 +33,21 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
       <Card.Section>
         <div className="bg-light-bg">
           <div className="py-4 px-5 flex flex-col grow">
-            <Text size="sm" c="dimmed" mb="xs">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2.5">
               {article.creationDate}
-            </Text>
+            </p>
 
-            <Title
-              order={3}
-              mb={10}
-              className="text-xl tablet:text-2xl font-bold leading-tight"
-            >
+            <h3 className="text-xl tablet:text-2xl font-bold leading-tight mb-2.5">
               {article.title}
-            </Title>
+            </h3>
 
-            <Text c="dimmed" lineClamp={3} className="grow" mb={12}>
+            <p className="line-clamp-3 grow text-gray-600 dark:text-gray-400 mb-3">
               {article.intro}
-            </Text>
+            </p>
 
-            <Group justify="right" align="center" mt="auto" className="pt-4">
-              <Text size="sm" fw={500}>
-                Zobacz więcej
-              </Text>
-            </Group>
+            <div className="flex justify-end items-center mt-auto pt-4">
+              <span className="text-sm font-medium">Zobacz więcej</span>
+            </div>
           </div>
         </div>
       </Card.Section>

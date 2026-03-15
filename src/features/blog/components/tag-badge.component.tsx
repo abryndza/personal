@@ -17,10 +17,10 @@ export const TagBadge = ({
     "px-4 py-2 rounded-lg border-2 border-solid transition duration-500 ease-in-out text-md inline-block";
 
   const activeClasses =
-    "bg-zinc-400 text-gray-900 border-zinc-400 font-bold hover:bg-zinc-300 hover:border-zinc-300 cursor-default";
+    "bg-gray-900 text-white border-gray-900 font-bold hover:bg-gray-700 hover:border-gray-700 cursor-default dark:bg-zinc-400 dark:text-gray-900 dark:border-zinc-400 dark:hover:bg-zinc-300 dark:hover:border-zinc-300";
 
   const inactiveClasses =
-    "text-gray-400 bg-zinc-800 border-zinc-600 hover:bg-zinc-950 cursor-pointer";
+    "text-gray-700 bg-gray-100 border-gray-300 hover:bg-gray-200 cursor-pointer dark:text-gray-400 dark:bg-zinc-800 dark:border-zinc-600 dark:hover:bg-zinc-950";
 
   const combinedClasses = `${baseClasses} ${
     isSelected ? activeClasses : inactiveClasses

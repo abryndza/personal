@@ -12,7 +12,7 @@ export async function ListingPage({ tagSlug }: ListingPageProps) {
 
   if (articles.length === 0) {
     return (
-      <div className="col-span-full flex justify-center text-base text-gray-500">
+      <div className="col-span-full flex justify-center text-base text-gray-600 dark:text-gray-400">
         Brak wpisów dla tego tagu.
       </div>
     );
