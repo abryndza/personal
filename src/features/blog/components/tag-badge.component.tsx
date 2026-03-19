@@ -14,7 +14,7 @@ export const TagBadge = ({
   className = "",
 }: TagBadgeProps) => {
   const baseClasses =
-    "px-4 py-2 rounded-lg border-2 border-solid transition duration-500 ease-in-out text-md inline-block";
+    "px-3 py-1 tablet:px-4 tablet:py-2 rounded-lg border-2 border-solid transition duration-500 ease-in-out text-sm tablet:text-base inline-block";
 
   const activeClasses =
     "bg-gray-900 text-white border-gray-900 font-bold hover:bg-gray-700 hover:border-gray-700 cursor-default dark:bg-zinc-400 dark:text-gray-900 dark:border-zinc-400 dark:hover:bg-zinc-300 dark:hover:border-zinc-300";

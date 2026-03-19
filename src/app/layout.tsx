@@ -40,10 +40,10 @@ export default function RootLayout({
       {...mantineHtmlProps}
     >
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
           <AppShell>{children}</AppShell>
         </MantineProvider>
       </body>

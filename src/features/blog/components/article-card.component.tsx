@@ -17,7 +17,7 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
       href={urls.article(article.slug)}
       padding="lg"
       radius="lg"
-      className="max-w-100 min-w-80 cursor-pointer flex flex-col"
+      className="w-full tablet:max-w-100 tablet:min-w-80 cursor-pointer flex flex-col"
     >
       <Card.Section>
         <div className="relative w-full aspect-video bg-bg">
@@ -32,21 +32,21 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
       </Card.Section>
       <Card.Section>
         <div className="bg-light-bg">
-          <div className="py-4 px-5 flex flex-col grow">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2.5">
+          <div className="py-3 px-3 tablet:py-4 tablet:px-5 flex flex-col grow">
+            <p className="text-xs tablet:text-sm text-gray-600 dark:text-gray-400 mb-2 tablet:mb-2.5">
               {article.creationDate}
             </p>
 
-            <h3 className="text-xl tablet:text-2xl font-bold leading-tight mb-2.5">
+            <h3 className="text-lg tablet:text-2xl font-bold leading-tight mb-2 tablet:mb-2.5">
               {article.title}
             </h3>
 
-            <p className="line-clamp-3 grow text-gray-600 dark:text-gray-400 mb-3">
+            <p className="line-clamp-3 grow text-sm tablet:text-base text-gray-600 dark:text-gray-400 mb-2 tablet:mb-3">
               {article.intro}
             </p>
 
             <div className="flex justify-end items-center mt-auto pt-4">
-              <span className="text-sm font-medium">Zobacz więcej</span>
+              <span className="text-xs tablet:text-sm font-medium">Zobacz więcej</span>
             </div>
           </div>
         </div>

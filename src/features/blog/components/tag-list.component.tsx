@@ -10,7 +10,7 @@ export const TagList = () => {
 
   return (
     <nav>
-      <ul className="flex flex-wrap gap-5">
+      <ul className="flex flex-wrap gap-3 tablet:gap-5">
         <li>
           <TagBadge
             name={"Wszystkie"}
