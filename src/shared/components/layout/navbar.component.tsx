@@ -86,7 +86,7 @@ export const Navbar = () => {
             ))}
           </ul>
           <div className="mt-8 flex gap-6">
-            <NavbarIcons size={30} />
+            <NavbarIcons size={30} className="w-14 h-14" />
           </div>
         </div>
       </Drawer>

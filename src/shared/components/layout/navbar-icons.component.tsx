@@ -23,9 +23,10 @@ const socialLinks = [
 
 type NavbarIconsProps = {
   size?: number;
+  className?: string;
 };
 
-export const NavbarIcons = ({ size }: NavbarIconsProps) => {
+export const NavbarIcons = ({ size, className }: NavbarIconsProps) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
@@ -34,7 +35,7 @@ export const NavbarIcons = ({ size }: NavbarIconsProps) => {
         const Icon = link.icon;
         return (
           <ExternalLink key={link.href} href={link.href} label={link.label}>
-            <NavbarIcon className="w-14 h-14">
+            <NavbarIcon className={className}>
               <Icon size={size || 20} />
             </NavbarIcon>
           </ExternalLink>
@@ -45,7 +46,7 @@ export const NavbarIcons = ({ size }: NavbarIconsProps) => {
         onClick={() => toggleColorScheme()}
         aria-label="Toggle theme"
       >
-        <NavbarIcon className="w-14 h-14">
+        <NavbarIcon className={className}>
           {colorScheme === "dark" ? (
             <IconSunFilled size={size || 20} />
           ) : (
