@@ -20,20 +20,23 @@ Strict feature-sliced architecture. Do not mix domain logic with UI.
   - `domain/`: Pure functions/classes (Value Objects). Zero dependencies.
   - `services/`: Side effects, API, external data, file system.
   - `libs/`: 3rd-party library wrappers/facades.
-  - `components/`, `pages/`, `layouts/`: Strictly UI/view logic.
+  - `components/ui/`: Strictly highly-reusable UI primitives (e.g. generic links, buttons) that are context-independent. Do NOT put full page views here.
+  - `components/` (other), `pages/`, `layouts/`: Strictly UI/view logic.
 
 ## 4. Conventions
 - **Naming (Suffixes)**: `*.component.tsx`, `*.hook.ts`, `*.interface.ts`, `*.page.tsx`, `*.layout.tsx`, `*.service.ts`, `*.lib.ts`, `*.domain.ts`.
+  - Shared/Feature components inside `pages/` directories MUST be suffixed with `Page` in their function name (e.g., `ListingPage`, `NotFoundPage`).
+  - App Router components (inside `src/app/`) MUST NOT have the `Page` suffix in their exported function names.
 - **Error Handling**: Use `Result<T, F>` from `src/shared/domain/result.domain.ts`. NEVER throw raw exceptions for expected failures. Return `Result` from services/domain using `success()` and `fail()`.
 - **State**: Native React state, URL SearchParams. NO external state libs (Zustand, Redux) or Context API unless explicitly instructed.
 - **Testing**: No automated tests exist. DO NOT write tests, `.spec.ts` files, or run test commands.
 
 ## 5. Styling
 - **Tailwind v4**: Global config in `src/app/globals.css`. Do not use utility mergers (clsx, tailwind-merge, cva). Use template literals for dynamic classes.
+  - **STRICT RULES**: You MUST use the custom breakpoints (`mobile:`, `tablet:`, `laptop:`, `monitor:`) instead of standard Tailwind breakpoints (`sm:`, `md:`, `lg:`).
+  - You MUST use the custom theme colors defined in CSS variables (e.g., `bg-bg`, `bg-light-bg`, `text-foreground`) for layouts and structural elements. Avoid raw Tailwind colors for backgrounds unless explicitly required.
 - **Mantine**: Avoid by default. Use ONLY for complex interactive components (Drawers, Carousels, Modals).
-- **Icons**: `@tabler/icons-react` exclusively.
 
 ## 6. Workflow & Commands
-Commands: `bun run dev`, `bun run lint`, `bun run format`, `bun run create-post`.
 - **Formatting**: Run `bun run format` and `bun run lint` after modifying files.
 - **Builds**: DO NOT run `bun run build`. User runs `bun dev` locally.

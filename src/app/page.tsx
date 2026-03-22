@@ -1,3 +1,5 @@
+import { HomePage } from "@/shared/pages";
+
 export default function Home() {
-  return <p>Hello, world!</p>;
+  return <HomePage />;
 }

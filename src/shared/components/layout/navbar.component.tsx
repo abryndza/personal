@@ -63,22 +63,30 @@ export const Navbar = () => {
           header: "bg-bg !bg-bg",
           body: "bg-bg !bg-bg",
         }}
+        styles={{
+          content: { display: "flex", flexDirection: "column" },
+          body: { display: "flex", flexDirection: "column", flex: 1 },
+        }}
       >
-        <div className="flex flex-col gap-4 mt-6 pt-15">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              style={{ textDecoration: "none" }}
-              onClick={close}
-              className="text-xl font-medium text-foreground"
-              scroll={false}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <div className="mt-8 flex gap-4">
-            <NavbarIcons />
+        <div className="flex-1 flex flex-col justify-between items-center pt-30 pb-10">
+          <ul className="list-none flex flex-col items-center gap-12">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  style={{ textDecoration: "none" }}
+                  onClick={close}
+                  className="text-3xl font-bold text-foreground"
+                  scroll={false}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex gap-6">
+            <NavbarIcons size={30} />
           </div>
         </div>
       </Drawer>

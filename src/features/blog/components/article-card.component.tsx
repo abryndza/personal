@@ -46,7 +46,9 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
             </p>
 
             <div className="flex justify-end items-center mt-auto pt-4">
-              <span className="text-xs tablet:text-sm font-medium">Zobacz więcej</span>
+              <span className="text-xs tablet:text-sm font-medium">
+                Zobacz więcej
+              </span>
             </div>
           </div>
         </div>
